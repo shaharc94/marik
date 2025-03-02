@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>האתר של מריק</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            direction: rtl; 
+            background: linear-gradient(45deg, #ff00ff, #ffcc00, #00ffcc, #ff0000);
+            background-size: 400% 400%;
+            animation: psychedelicBG 10s infinite alternate;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        @keyframes psychedelicBG {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        .container { 
+            max-width: 800px; 
+            margin: auto; 
+            padding: 20px; 
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            margin-top: 50px;
+            position: relative;
+        }
+        h1 { 
+            color: #ffcc00; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7); 
+        }
+        .hobby { 
+            margin: 20px 0; 
+            padding: 20px; 
+            border-radius: 10px; 
+            background: linear-gradient(135deg, #00ffcc, #ff00ff);
+            box-shadow: 0 2px 10px rgba(255,255,255,0.3);
+            transition: transform 0.3s ease, background 1s ease-in-out;
+            color: white;
+            position: relative;
+        }
+        .hobby:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #ff0000, #00ffcc);
+        }
+        .ufo {
+            position: absolute;
+            width: 60px;
+            height: 30px;
+            background: radial-gradient(circle, #fff 20%, transparent 60%);
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+            animation: floatUFO 5s infinite alternate ease-in-out, moveUFO 10s infinite linear;
+            cursor: pointer;
+        }
+        @keyframes floatUFO {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+        @keyframes moveUFO {
+            0% { left: -100px; top: 10%; }
+            25% { left: 25%; top: 20%; }
+            50% { left: 50%; top: 40%; }
+            75% { left: 75%; top: 20%; }
+            100% { left: 110%; top: 50%; }
+        }
+        .ufo1 { animation-delay: 0s; }
+        .ufo2 { animation-delay: 2s; }
+        .ufo3 { animation-delay: 4s; }
+        .ufo4 { animation-delay: 6s; }
+        
+        #score {
+            font-size: 24px;
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: inline-block;
+        }
+    </style>
+    <script>
+        let score = 0;
+        function catchUFO() {
+            score++;
+            document.getElementById('score').innerText = "תפסת " + score + " עב" + '״' + "מים!";
+            alert("אלוף! תפסת את העב״מ!");
+        }
+    </script>
+</head>
+<body>
+    <div class="ufo ufo1" onclick="catchUFO()"></div>
+    <div class="ufo ufo2" onclick="catchUFO()"></div>
+    <div class="ufo ufo3" onclick="catchUFO()"></div>
+    <div class="ufo ufo4" onclick="catchUFO()"></div>
+    
+    <div class="container">
+        <h1>🔮 ברוכים הבאים לאתר של מריק 🔮</h1>
+        <p>🌈 כאן תוכלו למצוא מידע על התחביבים שלי - אוכל, בניית דגמים מיניאטוריים ועוד! 🎭</p>
+        <div id="score">תפסת 0 עב"מים!</div>
+        
+        <div class="hobby">
+            <h2>🍽️ אהבה לאוכל</h2>
+            <p>אני נהנה לגלות מאכלים חדשים ולנסות מתכונים מיוחדים.</p>
+        </div>
+        
+        <div class="hobby">
+            <h2>🏗️ בניית דגמים מיניאטוריים</h2>
+            <p>אני בונה דגמים קטנים של מבנים, כלי רכב ודמויות עם תשומת לב לפרטים הקטנים.</p>
+        </div>
+    </div>
+</body>
+</html>
