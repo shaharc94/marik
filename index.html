@@ -15,7 +15,7 @@
             color: #fff;
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            overflow-x: hidden;
         }
         @keyframes psychedelicBG {
             0% { background-position: 0% 50%; }
@@ -30,6 +30,7 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             margin-top: 50px;
             position: relative;
+            z-index: 1;
         }
         h1 { 
             color: #ffcc00; 
@@ -47,29 +48,30 @@
             max-width: 600px;
         }
         .hobby:hover {
-            transform: scale(1.1);
-            background: linear-gradient(135deg, #ff0000, #00ffcc);
+            transform: scale(1.05);
         }
         .ufo {
             position: absolute;
-            width: 8vw;
-            height: 4vw;
+            width: 15vw;
+            height: 7vw;
             background: radial-gradient(circle, #fff 20%, transparent 60%);
             border-radius: 50%;
             box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
-            animation: floatUFO 5s infinite alternate ease-in-out, moveUFO 10s infinite linear;
+            animation: floatUFO 5s infinite alternate ease-in-out, moveUFO 6s infinite linear;
             cursor: pointer;
+            touch-action: manipulation;
+            z-index: 2;
         }
         @keyframes floatUFO {
             0% { transform: translateY(0px); }
             100% { transform: translateY(-10px); }
         }
         @keyframes moveUFO {
-            0% { left: -10vw; top: 10%; }
-            25% { left: 25vw; top: 20%; }
-            50% { left: 50vw; top: 40%; }
-            75% { left: 75vw; top: 20%; }
-            100% { left: 110vw; top: 50%; }
+            0% { left: -15vw; top: 5%; }
+            25% { left: 20vw; top: 15%; }
+            50% { left: 50vw; top: 30%; }
+            75% { left: 80vw; top: 10%; }
+            100% { left: 110vw; top: 40%; }
         }
         .ufo1 { animation-delay: 0s; }
         .ufo2 { animation-delay: 2s; }
@@ -83,27 +85,30 @@
             background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
             display: inline-block;
+            z-index: 1;
         }
         @media (max-width: 600px) {
-            .ufo { width: 15vw; height: 7vw; }
-            .hobby { width: 90%; }
+            .ufo { width: 20vw; height: 10vw; }
+            .hobby { width: 95%; }
             #score { font-size: 18px; }
+            h1 { font-size: 20px; }
         }
     </style>
     <script>
         let score = 0;
-        function catchUFO() {
+        function catchUFO(element) {
             score++;
             document.getElementById('score').innerText = "תפסת " + score + " עב" + '״' + "מים!";
             alert("אלוף! תפסת את העב״מ!");
+            element.style.display = "none";
         }
     </script>
 </head>
 <body>
-    <div class="ufo ufo1" onclick="catchUFO()"></div>
-    <div class="ufo ufo2" onclick="catchUFO()"></div>
-    <div class="ufo ufo3" onclick="catchUFO()"></div>
-    <div class="ufo ufo4" onclick="catchUFO()"></div>
+    <div class="ufo ufo1" onclick="catchUFO(this)"></div>
+    <div class="ufo ufo2" onclick="catchUFO(this)"></div>
+    <div class="ufo ufo3" onclick="catchUFO(this)"></div>
+    <div class="ufo ufo4" onclick="catchUFO(this)"></div>
     
     <div class="container">
         <h1>🔮 ברוכים הבאים לאתר של מריק 🔮</h1>
